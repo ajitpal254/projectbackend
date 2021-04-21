@@ -22,14 +22,22 @@ const RegisterScreen =({navigation}) => {
     },[navigation]);
 
     const register = () =>{
-           auth.createUserWithEmailAndPassword(email,password)
-           .then(authUser =>{
-           authUser.user.updateProfile({
-               displayName: name,
-               photoURL: imageUrl ||
-               "https://www.imagediamond.com/blog/wp-content/uploads/2020/05/be-happy-images-9.jpg"
-           });
-           }).catch(error => alert(error.message));
+        const user = auth.signInWithEmailAndPassword(email,password)
+        if(!user){
+            auth.createUserWithEmailAndPassword(email,password)
+                .then(authUser =>{
+                    authUser.user.updateProfile({
+                        displayName: name,
+                        photoURL: imageUrl ||
+                            "https://www.imagediamond.com/blog/wp-content/uploads/2020/05/be-happy-images-9.jpg"
+                    });
+                }).catch(error => alert(error.message));
+            navigation.navigate("Found")
+        }
+        else{
+            alert("user Already Exist")
+        }
+
     };
 
 
@@ -54,10 +62,11 @@ const RegisterScreen =({navigation}) => {
                 onChangeText={(text) => setEmail(text)}
              />
              <Input
-                 type="password"
+                 type= "password"
                 placeholder="password"
-                autofocus type='text'
-                value={password}
+                //autofocus type='text'
+                 secureTextEntry type="password"
+                 value={password}
                 onChangeText={(text) => setPassword(text)}
              />
              <Input

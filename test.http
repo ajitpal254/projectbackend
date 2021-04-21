@@ -1,13 +1,12 @@
 
 
-PUT http://localhost:8080/foundUpdate/6079ff0067205a2d14eacca9
+POST http://localhost:8080/contact
 Content-Type: application/json
 
 
 {
-"name": "Air pods Pro",
-  "image": "gs://lostandfound-ce0a0.appspot.com/airpods.jpg",
-  "brand": "Apple",
-  "category": "Mobile Accesories",
-  "description": "Found Apple Airpods near David Suzuki School"
+"name": "Ajit Pal",
+  "email": "ajitpal353@gmail.com",
+  "phoneNo": "5878916111",
+  "description": "Thanks i love this app i found my lost keys through your app"
 }

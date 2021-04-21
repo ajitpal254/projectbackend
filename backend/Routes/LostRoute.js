@@ -7,6 +7,7 @@ const Lost = require('../Model/LostModel')
 
 lostRouter.post('/lost',async (req, res)=>{
     const addItem = new Lost({
+        //user:req.body.user,
         name: req.body.name,
         image: req.body.image,
         brand: req.body.brand,

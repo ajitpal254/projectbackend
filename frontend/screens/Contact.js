@@ -1,24 +1,47 @@
 import React, {useState} from "react";
 import {View, StyleSheet, Text, Button, Alert, TextInput} from "react-native";
+import axios from "axios";
 const Contact = () => {
-  const [value, setValue] = useState(0);
+  const[name,setName]= useState("");
+  const[description,setDescription]= useState("");
+  const[email,setEmail]= useState("");
+  const [phoneNo, setPhoneNo]= useState("");
+  const submitForm=()=>{
+    axios.post('http://10.0.2.2:8080/contact', {
+      name:name,
+      description:description,
+      email:email,
+      phoneNo:phoneNo
+
+    }).then(res => {
+      console.log(res);
+    }).catch=e=>{
+      console.log(e)
+    }
+  }
   return (
       <View>
         <Text style={{}}> Contact us  Form </Text>
         <View>
-          <TextInput placeholder="Name" />
+          <TextInput placeholder="Name"  value={name}
+                     onChangeText={(text) => setName(text)}/>
           <TextInput
-
+              // secureTextEntry={true}
               placeholder="Email ID"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
           />
-
-          <TextInput
-              placeholder="Contact number"
-          />
+          <TextInput  placeholder="Phone No"
+                      value={phoneNo}
+                      onChangeText={(text) => setPhoneNo(text)} />
           <TextInput placeholder="description"
                      numberOfLines={3}
                      multiline={true}
+                     value={description}
+                     onChangeText={(text) => setDescription(text)}
+
           />
+
 
 
 
@@ -30,7 +53,7 @@ const Contact = () => {
 
           <Button
               title="SUBMIT"
-              onPress={() => Alert.alert('Simple Button pressed')}
+              onPress={() => submitForm()}
           />
 
           <Text>

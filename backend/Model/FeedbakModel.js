@@ -2,31 +2,23 @@ const mongoose = require('mongoose')
 
 
 
-const LostModel = mongoose.Schema({
-    // user: {
-    //  type: mongoose.Schema.Types.ObjectId,
-    // required: true,
-    // ref:'User'
-    // },
+const FeedbackSchema = mongoose.Schema({
+
     name :{
         type: String,
         required: true
     },
-    image:{
-        type: String,
-        required: true
-    },
-    brand:{
-        type: String,
-        required: true
-    },
-    category:{
-        type: String,
-        required: true
-    },
+   email:{
+     type: String,
+     required: true
+   },
     description:{
         type: String,
         required: true
+    },
+    value:{
+      type: Number,
+      required: true
     },
 
 
@@ -54,8 +46,8 @@ const LostModel = mongoose.Schema({
     }
 },{timeStamps:true});
 
-const Lost = mongoose.model('Lost',LostModel);
+const Feedback = mongoose.model('Feedback',FeedbackSchema);
 
 
-module.exports = Lost;
+module.exports = Feedback;
 

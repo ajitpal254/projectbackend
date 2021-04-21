@@ -3,6 +3,8 @@ const dbConfig = require('./backend/config/db')
 const Found = require('./backend/Routes/FoundRoute')
 const cors = require('cors')
 const Lost = require('./backend/Routes/LostRoute')
+const Feedback = require('./backend/Routes/FeedbackRoute')
+const Contact = require('./backend/Routes/Contactroute')
 
 dbConfig()
 const app = express();
@@ -15,6 +17,8 @@ app.get('/',(req,res) =>{
 
 app.use(Found)
 app.use(Lost)
+app.use(Feedback)
+app.use(Contact)
 
 
 const PORT = 8080;

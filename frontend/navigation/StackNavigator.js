@@ -6,7 +6,8 @@ import Home from "../screens/Home";
 import FeedBack from "../screens/About";
 import Contact from "../screens/Contact";
 import Register from "../screens/RegisterScreen";
-import Prodesc from "../screens/Product-Desc";
+import Prodfound from "../screens/Product-Found";
+import Prodlost from "../screens/Product-Lost";
 
 
 
@@ -30,7 +31,8 @@ const MainStackNavigator = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Feedback" component={FeedBack} />
       <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Prodesc" component={Prodesc} />
+        <Stack.Screen name="Prodfound" component={Prodfound} />
+        <Stack.Screen name="Prodlost" component={Prodlost} />
     </Stack.Navigator>
   );
 };

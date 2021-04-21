@@ -1,21 +1,46 @@
 import React, {useState} from "react";
 import {View, StyleSheet, Text, TextInput, Button, Alert} from "react-native";
 import {Slider} from "react-native-elements/dist/slider/Slider";
+import axios from "axios";
+
 const FeedBack = () => {
+
+  const[name,setName]= useState("");
+  const[description,setDescription]= useState("");
+  const[email,setEmail]= useState("");
+
   const [value, setValue] = useState(0);
+
+  const submitForm=()=>{
+    axios.post('http://10.0.2.2:8080/feedback', {
+      name:name,
+      description:description,
+     email:email,
+      value:value
+
+    }).then(res => {
+      console.log(res);
+    }).catch=e=>{
+      console.log(e)
+    }
+  }
   return (
     <View style={styles.center}>
       <Text>3AM Lost and Found</Text>
       <View>
-        <TextInput placeholder="Name" />
+        <TextInput placeholder="Name"  value={name}
+                   onChangeText={(text) => setName(text)}/>
         <TextInput
             // secureTextEntry={true}
             placeholder="Email ID"
-
+            value={email}
+            onChangeText={(text) => setEmail(text)}
         />
         <TextInput placeholder="description"
                    numberOfLines={3}
                    multiline={true}
+                   value={description}
+                   onChangeText={(text) => setDescription(text)}
 
         />
         <Text>
@@ -37,7 +62,7 @@ const FeedBack = () => {
 
         <Button
             title="SUBMIT"
-            onPress={() => Alert.alert('Simple Button pressed')}
+            onPress={() => submitForm()}
         />
     </View>
     </View>

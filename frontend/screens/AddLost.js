@@ -1,83 +1,106 @@
 import React from 'react';
-import { KeyboardAvoidingView } from 'react-native';
+import {KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import {StyleSheet,View} from "react-native";
 import {Button,Input,Text} from "react-native-elements";
 import {StatusBar} from "expo-status-bar";
 import  { useLayoutEffect,useState } from 'react';
+import axios from "axios"
+import firebase from "firebase";
 
 
-const AddLost = () => {
+
+const AddFound = (props) => {
+
 
     const[name,setName]= useState("");
     const[description,setDescription]= useState("");
-    const[value,setValue]= useState("");
-    const[location,setLocation]= useState("");
-    const[imageUrl,setImageUrl]= useState("");
+    const[brand,setBrand]= useState("");
+    const[category,setCategory]= useState("");
+    const[image,setImage]= useState("");
 
-  return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-           
-    <Text h4 style={{marginBottom:50}}>
-        Welcome to Add Lost Item Screen
-    </Text>
 
-    <View style={styles.inputContainer}>
-     <Input 
-        placeholder="Product Name"
-        autofocus type='text'
-        value={name}
-        onChangeText={(text) => setName(text)}
-     />
-     <Input 
-        placeholder="Description"
-        autofocus type='text'
-        value={description}
-        onChangeText={(text) => setDescription(text)}
-     />
-     <Input 
-        placeholder="Value"
-        autofocus type='text'
-        value={value}
-        onChangeText={(text) => setValue(text)}
-     />
-     <Input 
-        placeholder="Location"
-        autofocus type='text'
-        value={location}
-        onChangeText={(text) => setLocation(text)}
-     />
-     <Input 
-        placeholder="Profile picture url"
-        autofocus type='text'
-        value={imageUrl}
-        onChangeText={(text) => setImageUrl(text)}
-        //onSubmitEditing={register}
-     />
-      </View>
+    const addItem = ()=> {
 
-      <Button containerStyle={styles.button} raised onPress={console.log("waheguru")} title="Upload" />
-   <View style={{height:100}}></View>
-    
-</KeyboardAvoidingView>
-);
+        console.log("Clicked")
+        axios.post('http://10.0.2.2:8080/lost', {
+            //user:user,
+            name:name,
+            description:description,
+            brand:brand,
+            category:category,
+            image:image
+        }).then(res => {
+            console.log(res);
+        }).catch=e=>{
+            console.log(e)
+        }
+    }
+    return (
+        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+
+            <Text h4 style={{marginBottom:50}}>
+                Welcome to Add Lost Item To Lost Screen Database
+            </Text>
+
+            <View style={styles.inputContainer}>
+                <Input
+                    placeholder="Product Name"
+                    autofocus type='text'
+                    value={name}
+                    onChangeText={(text) => setName(text)}
+                />
+                <Input
+                    placeholder="Description"
+                    autofocus type='text'
+                    value={description}
+                    onChangeText={(text) => setDescription(text)}
+                />
+                <Input
+                    placeholder="brand"
+                    autofocus type='text'
+                    value={brand}
+                    onChangeText={(text) => setBrand(text)}
+                />
+                <Input
+                    placeholder="category"
+                    autofocus type='text'
+                    value={category}
+                    onChangeText={(text) => setCategory(text)}
+                />
+                <Input
+                    placeholder="Profile picture url"
+                    autofocus type='text'
+                    value={image}
+                    onChangeText={(text) => setImage(text)}
+                    //onSubmitEditing={register}
+                />
+            </View>
+
+            <TouchableOpacity onPress={()=> addItem()} style={{backgroundColor:'black',borderRadius:5,paddingHorizontal:20,paddingVertical:5}}>
+                <Text style={{color:'white'}}>SUBMIT</Text>
+            </TouchableOpacity>
+            <View style={{height:100}}></View>
+
+        </KeyboardAvoidingView>
+    );
 };
 
-export default AddLost 
+export default AddFound
 
 const styles = StyleSheet.create({
-container:{
- flex:1,
- alignItems:"center",
- justifyContent:"center",
- padding:10,
- backgroundColor:"white",
-},
-inputContainer:{
-width:300,
+    container:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center",
+        padding:10,
+        backgroundColor:"white",
+    },
+    inputContainer:{
+        width:300,
 
-},
-button:{
-width:200,
-marginTop:10,
-},
+    },
+    button:{
+        width:200,
+        marginTop:10,
+    },
 })
