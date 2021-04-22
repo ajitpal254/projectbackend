@@ -3,9 +3,10 @@ import "firebase/firestore";
 import "firebase/auth";
 
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCX6CoXASoXATS5qP0XTv-NpzQQ2BWpvqk",
     authDomain: "lostandfound-ce0a0.firebaseapp.com",
+    databaseURL: "https://lostandfound-ce0a0-default-rtdb.firebaseio.com",
     projectId: "lostandfound-ce0a0",
     storageBucket: "lostandfound-ce0a0.appspot.com",
     messagingSenderId: "3856268723",
@@ -26,5 +27,6 @@ var firebaseConfig = {
 
   const db =app.firestore();
   const auth = firebase.auth();
+  const storage = firebase.storage();
 
-  export {db,auth};
+  export {db,auth,storage};

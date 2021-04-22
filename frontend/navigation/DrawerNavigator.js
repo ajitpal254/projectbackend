@@ -7,6 +7,7 @@ import AddFound from "../screens/AddFound";
 import FeedBack from "../screens/About";
 import Lostfile from "../screens/Lostfile";
 import AddLost from "../screens/AddLost";
+import Image from "../screens/Image"
 
 
 
@@ -22,6 +23,8 @@ const DrawerNavigator = () => {
         <Drawer.Screen name="AddLost" component={AddLost} />
         <Drawer.Screen name="Lost" component={Lostfile}/>
         <Drawer.Screen name="Feedback" component={FeedBack}/>
+        <Drawer.Screen name="Image" component={Image} />
+
 
 
 

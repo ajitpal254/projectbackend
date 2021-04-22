@@ -49,7 +49,7 @@ const FeedBack = () => {
         <Slider
             step={1}
             minimumValue={0}
-            maximumValue={100}
+            maximumValue={5}
             value={value}
             onValueChange={slideValue => setValue(slideValue)}
             minimumTrackTintColor="#1fb28a"
@@ -57,7 +57,7 @@ const FeedBack = () => {
             thumbTintColor="#b9e4c9"
         />
         <Text>
-          Slide value: {value}%
+          Slide value: {value}
         </Text>
 
         <Button
