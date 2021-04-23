@@ -71,7 +71,7 @@ const Lost = ({navigation}) => {
         return (
             //Item Separator
             <View
-                style={{height: 1, width: '100%', backgroundColor: 'Black'}}
+                style={{height: 1, width: '100%', backgroundColor: 'white'}}
             />
         );
     };
@@ -151,20 +151,25 @@ const Lost = ({navigation}) => {
         }
         return (
 
-            <SafeAreaView style={{flex: 1}}>
-                <View style={{textAlign: "center",}}>
-                    <View style={{flexDirection: "row",}}>
-                        <Text style={{fontSize: 50, fontFamily: 'sans-serif-condensed'}}>Found</Text>
-                        <TouchableOpacity onPress={() => signOutUser()}>
-                            <Ionicons name="log-out-outline" size={32} color="black"/>
-                        </TouchableOpacity></View>
+            <SafeAreaView style={{flex: 1,backgroundColor:"lightgrey",flexDirection:"column"}}>
+                <View style={{textAlign: "center",backgroundColor:"aqua",alignItems: "center",justifyContent: "space-around"}}>
+                    <View style={{flexDirection: "row",justifyContent: "space-around"}}>
+                        <Text style={{fontSize: 50, fontFamily: 'sans-serif-condensed',color:"white"
+                            }}>Found</Text>
+                            <View>
+                                <TouchableOpacity onPress={() => signOutUser()} >
+                                    <Ionicons name="log-out-outline" size={32} color="white"/>
+                                </TouchableOpacity></View>
+                            </View>
+
+
+
                 </View>
 
 
-                <View style={{marginVertical: 5, marginHorizontal: 10}}>
+                <View style={{marginVertical: 5, marginHorizontal: 10,backgroundColor:"lightgrey"}}>
 
-                    <View>
-                    </View>
+
                     <View style={styles.container}>
                         <SearchBar
                             round
@@ -195,7 +200,7 @@ const Lost = ({navigation}) => {
 
     const styles = StyleSheet.create({
         container: {
-            backgroundColor: 'white',
+            backgroundColor: 'lightgrey',
         },
         itemStyle: {
             padding: 10,
