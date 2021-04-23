@@ -46,7 +46,7 @@ const LoginScreen=({navigation})=>{
 
         if(auth){
             try{
-            
+
 
                 const response = await firebase.auth().signInWithEmailAndPassword(email, password)
                 if(response){

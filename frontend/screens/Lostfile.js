@@ -76,7 +76,7 @@ const Lost = ({navigation}) => {
     const ItemView1 = ({item}) => {
         return (
             // Flat List Item
-            <View>
+            <View style={{paddingTop: 5,marginLeft:10}}>
                 <TouchableOpacity onPress={() => navigation.navigate('Prodlost', {id: item._id})}>
                     <Image source={{uri: item.image}} style={{height: 150, width: 180}}/>
                 </TouchableOpacity>
@@ -133,21 +133,26 @@ const Lost = ({navigation}) => {
 
     return (
 
-        <SafeAreaView style={{ flex: 1 }}>
-            <View style={{textAlign: "center",}}>
-                <View style={{flexDirection: "row",}}>
-                    <Text style={{fontSize: 50, fontFamily: 'sans-serif-condensed'}}>Lost</Text>
-                    <TouchableOpacity onPress={() => signOutUser()}>
-                        <Ionicons name="log-out-outline" size={32} color="black"/>
-                    </TouchableOpacity></View>
+        <SafeAreaView style={{flex: 1,backgroundColor:"lightgrey",flexDirection:"column"}}>
+            <View style={{textAlign: "center",backgroundColor:"#9AC4F8",alignItems: "center",justifyContent: "space-around"}}>
+                <View style={{flexDirection: "row"}}>
+                    <Text style={{fontSize: 36, fontFamily: 'sans-serif-condensed',color:"white"
+                    }}>Lost</Text>
+                    <View style={{paddingLeft:230,paddingTop:7}}>
+                        <TouchableOpacity onPress={() => signOutUser()} >
+                            <Ionicons name="log-out-outline" size={40} color="white"/>
+                        </TouchableOpacity></View>
+                </View>
+
             </View>
 
             <View style={{marginVertical:5,marginHorizontal:10}} >
 
 
                 <SearchBar
+                    style={{backgroundColor:"lightgrey",fontSize: 20}}
                     round
-                    searchIcon={{size: 24}}
+                    searchIcon={{size: 20,color:"white"}}
                     onChangeText={(text) => searchFilterFunction(text)}
                     onClear={(text) => searchFilterFunction('')}
                     placeholder="Type Here..."
@@ -172,9 +177,11 @@ const Lost = ({navigation}) => {
 };
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: 'lightgrey',
     },
     itemStyle: {
+        fontSize:20,
+        paddingTop:5,
         padding: 10,
     },
 });

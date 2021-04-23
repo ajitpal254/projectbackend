@@ -3,6 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCX6CoXASoXATS5qP0XTv-NpzQQ2BWpvqk",
     authDomain: "lostandfound-ce0a0.firebaseapp.com",
@@ -29,4 +30,5 @@ const firebaseConfig = {
   const auth = firebase.auth();
   const storage = firebase.storage();
 
-  export {db,auth,storage};
+
+  export {db,auth,storage,app};
