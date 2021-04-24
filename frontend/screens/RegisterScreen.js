@@ -22,8 +22,8 @@ const RegisterScreen =({navigation}) => {
     },[navigation]);
 
     const register = () =>{
-        const user = auth.signInWithEmailAndPassword(email,password)
-        if(!user){
+        //const user = auth.signInWithEmailAndPassword(email,password)
+
             auth.createUserWithEmailAndPassword(email,password)
                 .then(authUser =>{
                     authUser.user.updateProfile({
@@ -33,10 +33,7 @@ const RegisterScreen =({navigation}) => {
                     });
                 }).catch(error => alert(error.message));
             navigation.navigate("Found")
-        }
-        else{
-            alert("user Already Exist")
-        }
+
 
     };
 
