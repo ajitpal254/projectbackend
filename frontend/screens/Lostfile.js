@@ -14,6 +14,7 @@ const Lost = ({navigation}) => {
     const [filteredDataSource, setFilteredDataSource] = useState([]);
     const [masterDataSource, setMasterDataSource] = useState([]);
     const isFocused = useIsFocused();
+    let repeat;
     useEffect(()=>{
         const fetchData =async ()=>{
 
@@ -29,13 +30,17 @@ const Lost = ({navigation}) => {
 
 
 
-
+            repeat = setTimeout(fetchData, 1000);
         }
 
         fetchData();
-
-
-    },[isFocused])
+        return () => {
+            if (repeat) {
+                clearTimeout(repeat);
+            }
+        }
+console.log("Auto Refresh is ON")
+    },[])
 
 
     // const dummyArray = [

@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {View, StyleSheet, Text, TouchableOpacity, Button, Image, KeyboardAvoidingView, TextInput} from "react-native";
-import products from "../data/data";
-import data from "../data/data";
-import {Input} from "react-native-elements";
 import axios from "axios";
 
 
@@ -44,6 +41,7 @@ const Productdescript = ({route,navigation}) => {
 console.log(route.params.id)
     const deleteItem = ()=> {
         console.log("Clicked")
+        navigation.navigate("Found")
         axios.delete('http://10.0.2.2:8080/foundItems/'+route.params.id).then(res => {
             console.log(res);
         }).catch=e=>{
@@ -51,6 +49,7 @@ console.log(route.params.id)
         }
     }
     const updateItem = ()=> {
+        navigation.navigate("Found")
         axios.put('http://10.0.2.2:8080/foundItems/'+route.params.id, {
             name:name,
             description:description,

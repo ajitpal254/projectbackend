@@ -42,14 +42,17 @@ const Productdescript = ({route,navigation}) => {
 
     console.log(route.params.id)
     const deleteItem = ()=> {
+        navigation.navigate("Lost")
         console.log("Clicked")
         axios.delete('http://10.0.2.2:8080/lostItems/'+route.params.id).then(res => {
             console.log(res);
         }).catch=e=>{
             console.log(e)
         }
+
     }
     const updateItem = ()=> {
+        navigation.navigate("Lost")
         axios.put('http://10.0.2.2:8080/lostItems/'+route.params.id, {
             name:name,
             description:description,
@@ -61,6 +64,7 @@ const Productdescript = ({route,navigation}) => {
         }).catch=e=>{
             console.log(e)
         }
+
     }
     return (
         <View style={styles.center}>

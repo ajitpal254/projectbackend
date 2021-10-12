@@ -10,7 +10,7 @@ import * as ImagePicker from "expo-image-picker";
 
 
 
-const AddFound = (props) => {
+const AddFound = ({navigation}) => {
 
 
     const[name,setName]= useState("");
@@ -46,7 +46,7 @@ const AddFound = (props) => {
                 });
             }
         );
-
+        navigation.navigate("Lost")
         console.log("Clicked")
         axios.post('http://10.0.2.2:8080/lost', {
             //user:user,

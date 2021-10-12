@@ -8,9 +8,8 @@ import Contact from "../screens/Contact";
 import Register from "../screens/RegisterScreen";
 import Prodfound from "../screens/Product-Found";
 import Prodlost from "../screens/Product-Lost";
-
-
-
+import Founfile from "../screens/Founfile";
+import Lostfile from "../screens/Lostfile";
 
 const Stack = createStackNavigator();
 const screenOptionStyle = {
@@ -27,12 +26,14 @@ const screenOptionStyle = {
 };
 const MainStackNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={screenOptionStyle}>
+    <Stack.Navigator screenOptions={screenOptionStyle} headerMode={null}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Feedback" component={FeedBack} />
       <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Prodfound" component={Prodfound} />
         <Stack.Screen name="Prodlost" component={Prodlost} />
+      <Stack.Screen name={"Found"} component={Founfile} />
+        <Stack.Screen name={"Lost"} component={Lostfile} />
     </Stack.Navigator>
   );
 };

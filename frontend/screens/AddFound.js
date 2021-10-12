@@ -10,7 +10,7 @@ import firebase from "firebase";
 
 
 
-const AddFound = (props) => {
+const AddFound = ({navigation}) => {
 
 
     const[name,setName]= useState("");
@@ -55,7 +55,7 @@ const AddFound = (props) => {
                 });
             }
         );
-console.log("Clicked")
+
         axios.post('http://10.0.2.2:8080/found', {
             name:name,
             description:description,
@@ -67,6 +67,8 @@ console.log("Clicked")
         }).catch=e=>{
             console.log(e)
         }
+
+        navigation.navigate("Found")
     }
     const PickImage=async() =>{
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -88,7 +90,7 @@ console.log("Clicked")
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
 
     <Text h4 style={{marginBottom:50}}>
-        What Did you Found?
+        What Did you Find?
     </Text>
 
     <View style={styles.inputContainer}>
@@ -117,13 +119,7 @@ console.log("Clicked")
         value={category}
         onChangeText={(text) => setCategory(text)}
      />
-     {/*<Input*/}
-     {/*   placeholder="Profile picture url"*/}
-     {/*   autofocus type='text'*/}
-     {/*   value={image}*/}
-     {/*   onChangeText={(text) => setImage(text)}*/}
-     {/*   //onSubmitEditing={register}*/}
-     {/*/>*/}
+
         <Button title="Choose Image" onPress={PickImage}/>
         {image && <Image source={{uri:image}} style={{width:200,height:200}}   />}
         {/*<Button title="Upload" onPress={uploadimg}/>*/}
