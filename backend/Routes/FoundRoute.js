@@ -7,7 +7,7 @@ const Found = require('../Model/FoundModel')
 
 foundRouter.post('/found',async (req, res)=>{
     const addItem = new Found({
-        name: req.body.name,
+        name: req.body.name,  
         image: req.body.image,
         brand: req.body.brand,
         category: req.body.category,

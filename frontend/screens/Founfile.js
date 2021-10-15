@@ -51,6 +51,7 @@ const Lost = ({navigation}) => {
         }
         console.log("Auto Refresh is ON")
 
+
     }, [])
 
 
@@ -99,6 +100,7 @@ const Lost = ({navigation}) => {
             setFilteredDataSource(masterDataSource);
             setSearch(text);
         }
+
     };
 
     const ItemView1 = ({item}) => {

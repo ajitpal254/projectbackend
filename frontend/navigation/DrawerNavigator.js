@@ -7,6 +7,7 @@ import AddFound from "../screens/AddFound";
 import FeedBack from "../screens/About";
 import Lostfile from "../screens/Lostfile";
 import AddLost from "../screens/AddLost";
+import LoginScreen from "../screens/Home";
 
 
 
@@ -16,7 +17,7 @@ const DrawerNavigator = () => {
   return (
 
     <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={TabNavigator} />
+      <Drawer.Screen name="Home" component={LoginScreen} />
       <Drawer.Screen name="Contact" component={ContactStackNavigator} />
       <Drawer.Screen name="Found" component={Found} />
       <Drawer.Screen name="AddFound" component={AddFound} />
